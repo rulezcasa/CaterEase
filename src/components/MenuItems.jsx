@@ -25,7 +25,7 @@ const MenuItems = ({ apiUrl }) => {
         alert("Login to add to cart!")
     }else{
         addToCart(meal); // Call the addToCart function from the auth context
-        console.log(`Added ${meal.strMeal} to cart`);
+        alert(`Added ${meal.strMeal} to cart`);
     }
   };
 

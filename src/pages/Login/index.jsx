@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "../../components/elements/Button";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,6 +10,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { userLoggedIn, currentUser } = useAuth();
+
+
     
 
     const[email, setEmail]=useState('')
@@ -23,10 +25,10 @@ const Login = () => {
             setIsSigningIn(true);
             try {
                 await doSignInWithEmailAndPassword(email, password);
-                alert('Sign-In successful!'); // Alert after signing in successfully
                 setIsSigningIn(false);
-                //console.log(currentUser);
-                navigate("/");
+                alert('Sign in successfull!');
+                navigate("/")
+              
             } catch (error) {
                 // Check if the error is due to invalid credentials
                 if (error.code === 'auth/invalid-login-credentials' || error.code === 'auth/user-not-found') {

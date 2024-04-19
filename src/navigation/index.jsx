@@ -10,6 +10,12 @@ import { Footer } from "../components/Footer";
 import Menu from "../pages/Menu/index";
 import MenuItems from "../components/MenuItems";
 import Cart from '../pages/Cart';
+import Showinvoice from '../pages/Invoice/Invoice';
+import Invoice from '../components/Invoice';
+import CatererTable from '../pages/Caterers/manage';
+import UpdateCaterers from '../pages/Caterers/update';
+import Addcat from '../pages/Caterers/add';
+import ContactForm from '../pages/contact/contact';
 
 const Navigation = () => {
     const productsInCart = useSelector(cartProducts);
@@ -37,8 +43,13 @@ const Navigation = () => {
                 <Route path="/menu/breakfast" element={<MenuItems apiUrl="https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast" />} />
                 <Route path="/menu/goat" element={<MenuItems apiUrl="https://www.themealdb.com/api/json/v1/1/filter.php?c=Goat" />} />
                 <Route path="/cart" element={<Cart />} />
-                {/* <Route path="/payment-success" element={<PaymentSuccess />} /> */}
-            </Routes>
+                <Route path="/invoice" element={<Invoice/>} />   
+                <Route path="/caterers" element={<CatererTable/>} />
+                <Route path="/updatecat/:catererId" element={<UpdateCaterers />} /> 
+                <Route path="addcat" element={<Addcat/>} /> 
+                <Route path="contact" element={<ContactForm/>}/>
+
+                </Routes>
             <Footer />
         </BrowserRouter>
     )
